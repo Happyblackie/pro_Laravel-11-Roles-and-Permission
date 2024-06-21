@@ -3,9 +3,9 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
@@ -44,4 +44,18 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    static public function getRecord()
+    {
+        return User::select('users.*', 'role.name as role_name')
+                    ->join('role', 'role.id', '=', 'users.role_id')
+                    ->orderBy('users.id', 'desc')->get();
+    }
+
+    static public function getSingle($id)
+    {
+        return self::find($id);
+    }
+
+
 }

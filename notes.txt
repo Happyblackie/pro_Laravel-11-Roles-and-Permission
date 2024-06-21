@@ -1,0 +1,22 @@
+authenticating users
+..........................
+creating middleware
+    1. create middleware using artisan
+    2.write line of codes in the middleare for uswer auth
+    3.create middleware alias in bootstrap/app.php
+    4.create route group for the middleware
+    5.put the desired route inside the middleware route group
+
+
+logout DONE
+
+*****************************************************************************************
+
+
+
+ROLES:
+........................
+creating roles.. CRUD
+****************************************************************************************
+
+
